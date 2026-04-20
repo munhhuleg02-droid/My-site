@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Open me 😏</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+      font-family: Arial, sans-serif;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    #text {
+      font-size: 32px;
+      color: white;
+      opacity: 0;
+      transform: scale(0.5);
+      transition: all 0.8s ease;
+    }
+
+    .show {
+      opacity: 1 !important;
+      transform: scale(1) !important;
+    }
+  </style>
+</head>
+<body>
+
+<div id="text"></div>
+
+<script>
+  const messages = [
+    "You guys are my favorite idiots 😂❤️",
+    "I’m so glad you’re in my life 🥹❤️",
+    "Life is better with you in it 💖",
+    "You’re all so goofy and cute 😆❤️"
+  ];
+
+  let i = 0;
+  const text = document.getElementById("text");
+
+  function showNext() {
+    text.classList.remove("show");
+    
+    setTimeout(() => {
+      text.innerText = messages[i];
+      text.classList.add("show");
+      i++;
+      
+      if (i < messages.length) {
+        setTimeout(showNext, 2000);
+      }
+    }, 300);
+  }
+
+  showNext();
+</script>
+
+</body>
+</html>
